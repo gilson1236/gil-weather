@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+    <div class="search-container">
+
+        <div class="form-group">
+            <label>Pesquisar</label>
+            <div>
+                <input class="form-control" [formControl]="searchControl">
+                <button class="btn btn-dark"
+                    [disabled]="!searchControl.valid"
+                    (click)="doSearch()">Pesquisar</button>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label>Pesquisar com <i>autocomplete</i></label>
+            <gil-cities-typeahead [formControl]="searchControlWithAutocomplete"></gil-cities-typeahead>
+        </div>
+
+    </div>
+
+    <gil-loader *ngIf="loading$ | async"></gil-loader>
+
+    <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
+        <gil-current-weather [cityWeather]="cityWeather" 
+                             [isFavorite]="isCurrentFavorite$ | async"
+                             (toggleBookmark)="onToggleBookmark()"></gil-current-weather>
+    </div>
+
+    <div *ngIf="!(loading$ | async) && error$ | async">
+        <a>Tentar Novamente</a>
+    </div>
+
+</div>
