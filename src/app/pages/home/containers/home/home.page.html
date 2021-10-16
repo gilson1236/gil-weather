@@ -24,6 +24,7 @@
     <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
         <gil-current-weather [cityWeather]="cityWeather" 
                              [isFavorite]="isCurrentFavorite$ | async"
+                             [unit]="unit$ | async"
                              (toggleBookmark)="onToggleBookmark()"></gil-current-weather>
     </div>
 

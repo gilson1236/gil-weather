@@ -21,6 +21,10 @@ const reducer = createReducer(
   on(fromBookmarsAction.removeBookmark, (state, { id }) => ({
     ...state,
     list: state.list.filter(b => b.id !== id),
+  })),
+  on(fromBookmarsAction.updateBookmarksList, (state, { list }) => ({
+    ...state,
+    list,
   }))
 );
 

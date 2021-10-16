@@ -5,8 +5,10 @@ import { Observable } from 'rxjs';
 
 import { CityDailyWeather } from 'src/app/shared/models/weather.model';
 import { AppState } from 'src/app/shared/state/app.reducer';
+import { Units } from 'src/app/shared/models/utils.enum';
 import * as fromDetailsActions from '../../state/details.actions';
 import * as fromDetailsSelectors from '../../state/details.selectors';
+import * as fromConfigSelctors from '../../../../shared/state/config/config.selectors';
 
 @Component({
   selector: 'gil-details',
@@ -19,6 +21,8 @@ export class DetailsPage implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<boolean>;
 
+  unit$: Observable<Units>;
+
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(){
@@ -27,6 +31,8 @@ export class DetailsPage implements OnInit {
     this.details$ = this.store.pipe(select(fromDetailsSelectors.selectDetailsEntity));
     this.loading$ = this.store.pipe(select(fromDetailsSelectors.selectDetailsLoading));
     this.error$ = this.store.pipe(select(fromDetailsSelectors.selectDetailsError));
+
+    this.unit$ = this.store.pipe(select(fromConfigSelctors.selectUnitConfig));
   }
 
 }

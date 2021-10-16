@@ -6,7 +6,7 @@ import { Observable, Subscriber } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { CityTypeaheadItem } from '../../models/city-typeahead-item.model';
-import { CitiesService } from './../../services/cities.service';
+import { CitiesService } from '../../services/cities.service';
 
 @Component({
   selector: 'gil-cities-typeahead',
@@ -29,7 +29,7 @@ export class CitiesTypeaheadComponent implements OnInit, ControlValueAccessor {
                 control.valueAccessor = this;
               }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.dataSource$ = new Observable(
       (subscriber: Subscriber<string>) => subscriber.next(this.search)
       )

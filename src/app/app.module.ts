@@ -12,17 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 import { HomeModule } from './pages/home/home.module';
-import { CitiesTypeaheadComponent } from './shared/components/cities-typeahead/cities-typeahead.component';
 import { environment } from '../environments/environment';
-import { DetailedWeatherComponent } from './shared/components/detailed-weather/detailed-weather.component';
 import { reducers } from './shared/state/app.reducer';
 import { CustomRouterSerializer } from './shared/state/router/router.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
-    //CitiesTypeaheadComponent,
-    //DetailedWeatherComponent
   ],
   imports: [
     BrowserModule,

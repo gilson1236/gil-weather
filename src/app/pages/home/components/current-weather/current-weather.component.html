@@ -3,7 +3,8 @@
 
         <h2>{{ cityName }}</h2>
         
-        <gil-detailed-weather [weather]="cityWeather.weather"></gil-detailed-weather>
+        <gil-detailed-weather [weather]="cityWeather.weather"
+                              [unit]="unit"></gil-detailed-weather>
 
         <div class="card-actions">
             <a class="card-link" (click)="onToggleBookmark()">

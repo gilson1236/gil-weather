@@ -11,11 +11,13 @@ import { homeReducer } from './state/home.reducer';
 import { HomeEffects } from './state/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
+import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.component';
 
 @NgModule({
   declarations: [
     HomePage,
-    CurrentWeatherComponent
+    CurrentWeatherComponent,
+    UnitSelectorComponent
   ],
   imports: [
     CommonModule, 
